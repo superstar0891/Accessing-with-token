@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" onsubmit="loginfunction()">
             @csrf
 
             <div>
@@ -39,14 +39,15 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4"  >
                     {{ __('Login') }}
                 </x-jet-button>
             </div>
 
             {{-- Login with Facebook Component --}}
             <div class="flex items-center justify-end mt-4">
-                <a class="btn" href="{{ url('auth/facebook') }}"
+                <a class="btn" href="javascript:connectfacebook('{{url('')}}')"
+                {{-- <a class="btn" onclick="connectfacebook()" --}}
                     style="background-color: #3B5499; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
                    Login with Facebook
                 </a>
@@ -62,7 +63,8 @@
 
             {{-- Login with Revolut Component --}}
             <div class="flex items-center justify-end mt-4">
-                <a class="btn" href="{{ url('auth/revolut') }}"
+                <a class="btn" href="javascript:connectrevolut('{{url('')}}')"
+                {{-- <a class="btn" onclick="connectrevolut()" --}}
                     style="background-color: #ce143f; color: #ffffff; padding: 8px; width: 100%; text-align: center; display: block; border-radius:4px;">
                     Login with Revolut
                 </a>

@@ -3,13 +3,14 @@
         <x-slot  name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
-        <div class=" uppercase text-center text-purple-600   text-lg">please register with UKPC tokens! <br>
-         Click <a class=" mb-4 font-medium text-2xl text-red-600  hover:text-blue-500 " href="https://pancakeswap.finance/">here</a> to buy tokens
+        {{-- <x-jet-button class=" text-center" onclick="Connect()">Connect Metamask</x-jet-button> --}}
+        <div class="  text-center text-purple-600   text-lg">Please register with UKPC tokens! <br>
+         Click <a class=" btn mb-4 font-medium text-2xl text-red-600  hover:text-blue-500 " href="https://pancakeswap.finance/">here</a> to buy tokens
         </div>
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" onsubmit="registerfunction()">
             @csrf
 
             <div>
@@ -50,11 +51,11 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                <a  class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4" >
                     {{ __('Register') }}
                 </x-jet-button>
             </div>
